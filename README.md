@@ -37,6 +37,10 @@ Each skill file follows one of a few consistent formats (see [`skills/templates/
 
 Some skills are placeholders as they are being worked on. Please check back often for updates.
 
+## Credits
+
+Specifications, standards, and people whose work informed these skills are tracked in [`CREDITS.md`](CREDITS.md), linked from the specific files that cite them.
+
 ## License
 
 MIT — see [`LICENSE`](LICENSE). Use, adapt, and redistribute freely.
