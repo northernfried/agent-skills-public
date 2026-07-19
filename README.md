@@ -35,7 +35,7 @@ Each skill file follows one of a few consistent formats (see [`skills/templates/
 
 ## Notes
 
-Some skills are placeholders as they are being worked on. Please check back often for updates.
+Some skills are placeholders as they are being worked on. Please check back often for updates. See [`RELEASE_NOTES.md`](RELEASE_NOTES.md) for the current available-vs-in-progress breakdown.
 
 ## Credits
 
