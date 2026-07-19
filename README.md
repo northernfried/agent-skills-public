@@ -33,6 +33,10 @@ Start at [`skills/INDEX.md`](skills/INDEX.md).
 
 Each skill file follows one of a few consistent formats (see [`skills/templates/`](skills/templates/)) — a `Core Prompt / Instructions` block meant to be handed to an agent more or less as-is, plus inputs, expected output, and a quality checklist for verifying the result. Point your agent at the relevant file, or fold it into project-level agent configuration (e.g. a `CLAUDE.md`) so it's loaded automatically.
 
+## Notes
+
+Some skills are placeholders as they are being worked on. Please check back often for updates.
+
 ## License
 
 MIT — see [`LICENSE`](LICENSE). Use, adapt, and redistribute freely.
