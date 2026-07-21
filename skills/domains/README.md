@@ -5,3 +5,4 @@ Use this category for shared domain-specific skills such as payments, pricing, c
 Initial planned migrations:
 
 - `pci-dss-req-3-4.md`
+- `agent-zero-trust-delegation.md`

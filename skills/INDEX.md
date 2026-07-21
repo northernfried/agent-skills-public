@@ -23,6 +23,8 @@ Entry point for this skill library. Each category below is a directory of focuse
 - `platform/api-builder.md` — designs/extends REST API contracts against the OpenAPI Specification and Google's API design guide (AIPs); orchestrates the `api-builder-*` sub-recipes in `recipes/`.
 - `platform/llm-model-contract.md` — offline-first LLM provider abstraction pattern (tiers, resolution order, shared provider layer) for multi-app/agent codebases.
 - `recipes/payment-processing-recipe.md` + `domains/pci-dss-req-3-4.md` — a worked example of linking a compliance requirement to a mandatory implementation recipe.
+- `domains/agent-zero-trust-delegation.md` — a zero-trust skeleton for agent-to-application authorization: agents as a distinct principal, no inherited human entitlements, 15-30 minute delegation grants, and explicit defenses against an agent masquerading as the human it's acting for.
+- `governance/github-push-sensitivity-review.md` — secret scanning, `.env`/`.env.example` conventions, structure-preserving placeholder values, and de-branding forked sample repos before a GitHub push.
 
 ## Adding a New Skill
 

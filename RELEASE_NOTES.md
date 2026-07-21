@@ -2,7 +2,7 @@
 
 Status of every skill category in this repo — what's available to use today vs. what's on the roadmap. See [`skills/INDEX.md`](skills/INDEX.md) for the category model and [`README.md`](README.md) for how to use a skill.
 
-## ✅ Available (38 skills across 9 categories)
+## ✅ Available (40 skills across 9 categories)
 
 ### `platform/` — 7 skills
 Engineering/runtime: monorepo, tooling, testing, infra.
@@ -40,13 +40,14 @@ Planning, decomposition, QA, release, workflow execution.
 - [`sprint-success-monitoring.md`](skills/delivery/sprint-success-monitoring.md)
 - [`story-point-calibration.md`](skills/delivery/story-point-calibration.md)
 
-### `governance/` — 5 skills
+### `governance/` — 6 skills
 Standards, controls, monitoring, policy.
 - [`cost-aware-agent-utilization.md`](skills/governance/cost-aware-agent-utilization.md)
 - [`defect-triage-assistant.md`](skills/governance/defect-triage-assistant.md)
 - [`permissions-and-safety.md`](skills/governance/permissions-and-safety.md)
 - [`quality-monitoring-model.md`](skills/governance/quality-monitoring-model.md)
 - [`verification-and-self-checking.md`](skills/governance/verification-and-self-checking.md)
+- [`github-push-sensitivity-review.md`](skills/governance/github-push-sensitivity-review.md)
 
 ### `Strategy/` — 5 skills
 Goal-setting, portfolio alignment, strategy evaluation.
@@ -62,9 +63,10 @@ Backlog and roadmap refinement techniques.
 - [`refinement-plan-realism-and-capacity-risk.md`](skills/Refinement/refinement-plan-realism-and-capacity-risk.md)
 - [`workstream-prioritization-and-roadmap-refinement.md`](skills/Refinement/workstream-prioritization-and-roadmap-refinement.md)
 
-### `domains/` — 1 skill
+### `domains/` — 2 skills
 Domain-specific compliance/security guidance.
 - [`pci-dss-req-3-4.md`](skills/domains/pci-dss-req-3-4.md)
+- [`agent-zero-trust-delegation.md`](skills/domains/agent-zero-trust-delegation.md)
 
 ### `product/` — 1 skill
 Product-family overlays.
