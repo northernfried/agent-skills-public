@@ -2,6 +2,10 @@
 
 Use this folder for pre-delivery refinement activities that shape realistic, strategy-aligned work before implementation begins.
 
+> Run `../product/systems-thinking-and-domain-driven-design.md` first when a workstream involves defining a new solution boundary. Confirm ubiquitous language and bounded-context ownership before a workstream is admitted, so product and engineering aren't discovering term or ownership drift mid-increment.
+>
+> When a workstream is itself a proposed process change (not a product feature), run it through `../Management/pdsa-improvement-cycle.md` as a small-scale, falsifiable trial before admitting it as a full-scope increment, and check any reactive quota/target change against `../Management/funnel-experiment.md` before it's scheduled.
+
 ## Purpose
 
 These skills help teams and product leadership:

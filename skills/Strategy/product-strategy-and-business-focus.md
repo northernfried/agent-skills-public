@@ -40,7 +40,10 @@ Produce the result in this order:
 3. Define the critical business topics to address during the year and attach indicative timelines.
 4. Map major campaigns, key occurrences, seasonal deadlines, and commercial opportunities that the strategy must support.
 5. Answer these questions explicitly:
-   - why should the organization invest in this?
+   - why should the organization invest in this? (run the candidate through
+     `product-revenue-tier-investment-case.md` for the quantitative
+     direct/indirect revenue classification and investment gate — don't
+     answer this from narrative alone)
    - what does success look like once delivered?
    - what is the intended client experience?
    - what additional topics, enablers, or dependencies are needed to get there?
@@ -61,7 +64,7 @@ Rules:
 - [ ] Strategic focus areas are explicit and selective.
 - [ ] Important verticals or growth arenas are named with rationale.
 - [ ] Critical business topics include timing expectations.
-- [ ] Investment rationale is explicit.
+- [ ] Investment rationale is explicit and, where a specific product/solution is being justified, backed by `product-revenue-tier-investment-case.md`'s quantitative gate rather than narrative alone.
 - [ ] Future-state client experience is clearly described.
 - [ ] Enablers and exclusions are visible.
 

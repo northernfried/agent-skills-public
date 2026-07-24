@@ -2,7 +2,7 @@
 
 Status of every skill category in this repo — what's available to use today vs. what's on the roadmap. See [`skills/INDEX.md`](skills/INDEX.md) for the category model and [`README.md`](README.md) for how to use a skill.
 
-## ✅ Available (40 skills across 9 categories)
+## ✅ Available (55 skills across 10 categories)
 
 ### `platform/` — 7 skills
 Engineering/runtime: monorepo, tooling, testing, infra.
@@ -49,13 +49,16 @@ Standards, controls, monitoring, policy.
 - [`verification-and-self-checking.md`](skills/governance/verification-and-self-checking.md)
 - [`github-push-sensitivity-review.md`](skills/governance/github-push-sensitivity-review.md)
 
-### `Strategy/` — 5 skills
+### `Strategy/` — 8 skills
 Goal-setting, portfolio alignment, strategy evaluation.
 - [`annual-goals-and-quarterly-objectives.md`](skills/Strategy/annual-goals-and-quarterly-objectives.md)
 - [`investment-portfolio-alignment.md`](skills/Strategy/investment-portfolio-alignment.md)
 - [`product-and-solution-portfolio-definition.md`](skills/Strategy/product-and-solution-portfolio-definition.md)
 - [`product-strategy-and-business-focus.md`](skills/Strategy/product-strategy-and-business-focus.md)
 - [`quarterly-strategy-evaluation-and-adjustment.md`](skills/Strategy/quarterly-strategy-evaluation-and-adjustment.md)
+- [`product-lifecycle-hierarchy-evaluation-matrix.md`](skills/Strategy/product-lifecycle-hierarchy-evaluation-matrix.md)
+- [`product-revenue-tier-investment-case.md`](skills/Strategy/product-revenue-tier-investment-case.md) (+ interactive companion visual, `product-revenue-tier-investment-case.html`)
+- [`product-proposal-viability-scoring.md`](skills/Strategy/product-proposal-viability-scoring.md)
 
 ### `Refinement/` — 3 skills
 Backlog and roadmap refinement techniques.
@@ -68,9 +71,23 @@ Domain-specific compliance/security guidance.
 - [`pci-dss-req-3-4.md`](skills/domains/pci-dss-req-3-4.md)
 - [`agent-zero-trust-delegation.md`](skills/domains/agent-zero-trust-delegation.md)
 
-### `product/` — 1 skill
+### `product/` — 2 skills
 Product-family overlays.
+- [`systems-thinking-and-domain-driven-design.md`](skills/product/systems-thinking-and-domain-driven-design.md) — foundational lens for this and the `Strategy/`/`Refinement/` categories
 - [`competitor-analysis-synthesizer.md`](skills/product/competitor-analysis-synthesizer.md)
+
+### `Management/` — 6 skills
+Management practice grounded in W. Edwards Deming's work.
+- [`system-of-profound-knowledge.md`](skills/Management/system-of-profound-knowledge.md)
+- [`fourteen-points-for-management.md`](skills/Management/fourteen-points-for-management.md)
+- [`seven-deadly-diseases.md`](skills/Management/seven-deadly-diseases.md)
+- [`pdsa-improvement-cycle.md`](skills/Management/pdsa-improvement-cycle.md)
+- [`red-bead-experiment.md`](skills/Management/red-bead-experiment.md)
+- [`funnel-experiment.md`](skills/Management/funnel-experiment.md)
+
+### `communication/` — 1 skill
+Structuring written reports, memos, RFCs, briefings.
+- [`bookend-communication-structure.md`](skills/communication/bookend-communication-structure.md)
 
 ### `templates/` — 5 authoring templates
 Not skills themselves — starting points for writing new ones.
@@ -82,9 +99,6 @@ Not skills themselves — starting points for writing new ones.
 
 ### `Financial impact analysis/`
 Category scaffolded, no skill files yet. Goal: guide agents through financial-impact analysis of a proposed change (cost/benefit modeling, ROI framing, budget-impact writeups).
-
-### `communication/`
-Category scaffolded, no skill files yet. Goal: templated communication skills (status updates, stakeholder messaging, incident/change communications).
 
 ---
 

@@ -2,6 +2,48 @@
 
 Sources, specifications, and people whose work enriched the skills in this repo, with links back to the specific files that cite them.
 
+## Systems Thinking & Management Theory
+
+### The Systems Thinker
+**https://thesystemsthinker.com/systems-thinking-what-why-when-where-and-how/**
+Source for the Iceberg Framework (Events → Patterns → Structure → Mental Models) and the "no perfect solutions" framing.
+- [`skills/product/systems-thinking-and-domain-driven-design.md`](skills/product/systems-thinking-and-domain-driven-design.md)
+
+### MIT Open Learning
+**https://openlearning.mit.edu/news/ask-mit-professor-what-system-thinking-and-why-it-important**
+Edward Crawley's systems-as-entities-and-relationships framing ("the cognitive skill of the 21st century").
+- [`skills/product/systems-thinking-and-domain-driven-design.md`](skills/product/systems-thinking-and-domain-driven-design.md)
+
+### Wikipedia — Systems Thinking
+**https://en.wikipedia.org/wiki/Systems_thinking**
+Source for reinforcing/balancing feedback loops, stocks and flows, emergence, causal loop diagrams, and Donella Meadows' leverage-points hierarchy.
+- [`skills/product/systems-thinking-and-domain-driven-design.md`](skills/product/systems-thinking-and-domain-driven-design.md)
+
+### Domain Language (Eric Evans)
+**https://www.domainlanguage.com/ddd/**
+Primary source for Domain-Driven Design's ubiquitous language, strategic design, and context mapping.
+- [`skills/product/systems-thinking-and-domain-driven-design.md`](skills/product/systems-thinking-and-domain-driven-design.md)
+
+### Wikipedia — Domain-Driven Design
+**https://en.wikipedia.org/wiki/Domain-driven_design**
+Source for DDD's three pillars, tactical patterns, and the nine Context Mapping patterns (Partnership, Shared Kernel, Customer/Supplier, Conformist, Anticorruption Layer, Open-Host Service, Published Language, Separate Ways, Big Ball of Mud).
+- [`skills/product/systems-thinking-and-domain-driven-design.md`](skills/product/systems-thinking-and-domain-driven-design.md)
+
+### DDD Crew
+**https://github.com/ddd-crew**
+Source for the practical, fillable DDD templates.
+- [`skills/product/systems-thinking-and-domain-driven-design.md`](skills/product/systems-thinking-and-domain-driven-design.md) — [Bounded Context Canvas](https://github.com/ddd-crew/bounded-context-canvas), [Aggregate Design Canvas](https://github.com/ddd-crew/aggregate-design-canvas), [DDD Starter Modelling Process](https://github.com/ddd-crew/ddd-starter-modelling-process)
+
+### The W. Edwards Deming Institute
+**https://deming.org/**
+Primary source for the entire `Management/` skillset.
+- [`skills/Management/system-of-profound-knowledge.md`](skills/Management/system-of-profound-knowledge.md) — [Deming the Man](https://deming.org/deming-the-man/), [SoPK](https://deming.org/explore/sopk/)
+- [`skills/Management/fourteen-points-for-management.md`](skills/Management/fourteen-points-for-management.md) — [Fourteen Points](https://deming.org/explore/fourteen-points/)
+- [`skills/Management/seven-deadly-diseases.md`](skills/Management/seven-deadly-diseases.md) — [Seven Deadly Diseases](https://deming.org/explore/seven-deadly-diseases/)
+- [`skills/Management/pdsa-improvement-cycle.md`](skills/Management/pdsa-improvement-cycle.md) — [PDSA](https://deming.org/explore/pdsa/)
+- [`skills/Management/red-bead-experiment.md`](skills/Management/red-bead-experiment.md) — [Red Bead Experiment](https://deming.org/explore/red-bead-experiment/)
+- [`skills/Management/funnel-experiment.md`](skills/Management/funnel-experiment.md) — [The Funnel Experiment](https://deming.org/explore/the-funnel-experiment/)
+
 ## Specifications & Standards
 
 ### OpenAPI Specification

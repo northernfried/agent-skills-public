@@ -1,0 +1,1033 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Product Revenue Tier &amp; Investment Case — Visual Model</title>
+<style>
+  :root {
+    --navy-900: #0b1c36;
+    --navy-800: #132a4d;
+    --navy-700: #1e3a5f;
+    --navy-500: #3b5c82;
+    --navy-300: #7f9ab5;
+    --gray-050: #f7f8fa;
+    --gray-100: #eef1f4;
+    --gray-200: #e0e5ea;
+    --gray-400: #9aa5b1;
+    --gray-600: #5b6572;
+    --paper: #ffffff;
+    --ink: #16233a;
+    --ink-soft: #445269;
+    --good: #2f7a52;
+    --good-bg: #e6f2ea;
+    --bad: #a3372f;
+    --bad-bg: #fbe9e7;
+    --warn: #97671a;
+    --warn-bg: #f7ecd9;
+    --heading: var(--navy-900);
+    --tag-bg: var(--navy-900);
+    --serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --mono: 'SF Mono', 'Cascadia Code', 'Consolas', 'Liberation Mono', monospace;
+    --radius: 10px;
+    --shadow: 0 1px 2px rgba(11,28,54,0.06), 0 6px 20px rgba(11,28,54,0.06);
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #101b2d;
+    --ink: #e7ecf3;
+    --ink-soft: #a9b6c9;
+    --gray-050: #0c1524;
+    --gray-100: #16233a;
+    --gray-200: #1f2f4a;
+    --gray-400: #6c7c93;
+    --gray-600: #9aa9bd;
+    --navy-300: #6b87a8;
+    --good-bg: #12281c;
+    --bad-bg: #2c1613;
+    --warn-bg: #2a2010;
+    --heading: #dde6f2;
+    --tag-bg: #2c4568;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #101b2d;
+      --ink: #e7ecf3;
+      --ink-soft: #a9b6c9;
+      --gray-050: #0c1524;
+      --gray-100: #16233a;
+      --gray-200: #1f2f4a;
+      --gray-400: #6c7c93;
+      --gray-600: #9aa9bd;
+      --navy-300: #6b87a8;
+      --good-bg: #12281c;
+      --bad-bg: #2c1613;
+      --warn-bg: #2a2010;
+      --heading: #dde6f2;
+      --tag-bg: #2c4568;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--gray-050);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--navy-300); color: #fff; }
+
+  a { color: var(--navy-500); }
+
+  .wrap {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 56px 28px 96px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+
+  /* ---------- Header ---------- */
+  header.masthead {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border-bottom: 1px solid var(--gray-200);
+    padding-bottom: 32px;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--navy-500);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: var(--heading);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .dek {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin: 0;
+  }
+  .source-line {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--gray-400);
+    margin-top: 6px;
+  }
+
+  section { display: flex; flex-direction: column; gap: 22px; }
+  .section-head { display: flex; flex-direction: column; gap: 8px; }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--navy-500);
+    letter-spacing: 0.08em;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--heading);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .section-intro {
+    color: var(--ink-soft);
+    max-width: 68ch;
+    font-size: 15.5px;
+  }
+  .hint {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--navy-500);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ---------- Section 1: Classification ---------- */
+  .classify-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  @media (max-width: 700px) { .classify-row { grid-template-columns: 1fr; } }
+
+  .class-card {
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 22px 22px 20px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .class-card:hover { border-color: var(--navy-300); transform: translateY(-1px); }
+  .class-card:focus-visible { outline: 2px solid var(--navy-500); outline-offset: 2px; }
+  .class-card h3 {
+    font-family: var(--serif);
+    font-size: 19px;
+    margin: 0 0 6px;
+    color: var(--heading);
+  }
+  .class-card p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--tag-bg);
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  .class-card.indirect .tag { background: var(--gray-600); }
+
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+  @media (max-width: 560px) { .mech-grid { grid-template-columns: 1fr; } }
+  .mech-grid.open { max-height: 600px; }
+  .mech {
+    border: 1px dashed var(--gray-200);
+    border-radius: 8px;
+    padding: 12px 13px;
+    background: var(--gray-050);
+  }
+  .mech b {
+    display: block;
+    font-size: 13px;
+    color: var(--navy-700);
+    margin-bottom: 3px;
+  }
+  :root[data-theme="dark"] .mech b { color: var(--navy-300); }
+  .mech span { font-size: 13px; color: var(--ink-soft); }
+
+  /* ---------- Section 2: Pyramid ---------- */
+  .pyramid-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 30px;
+    align-items: start;
+  }
+  @media (max-width: 760px) { .pyramid-layout { grid-template-columns: 1fr; } }
+
+  .pyramid {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 3px;
+  }
+  .tier {
+    position: relative;
+    margin: 0 auto;
+    color: #fff;
+    border-radius: 6px;
+    padding: 16px 14px;
+    cursor: pointer;
+    text-align: center;
+    font-family: var(--serif);
+    transition: filter 0.15s ease, transform 0.15s ease;
+    clip-path: polygon(6% 0, 94% 0, 100% 100%, 0% 100%);
+  }
+  .tier:hover { filter: brightness(1.08); }
+  .tier.active { transform: scale(1.015); box-shadow: 0 0 0 2px var(--heading) inset; }
+  .tier .t-name { font-size: 17px; font-weight: 600; }
+  .tier .t-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    opacity: 0.85;
+    margin-top: 3px;
+  }
+  .tier-1 { width: 100%; background: var(--navy-300); clip-path: none; border-radius: 8px 8px 6px 6px; }
+  .tier-2 { width: 78%; background: var(--navy-500); }
+  .tier-3 { width: 56%; background: var(--navy-700); }
+  .tier-4 { width: 34%; background: var(--navy-900); border-radius: 6px 6px 0 0; }
+
+  .axis-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gray-400);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 10px;
+    padding: 0 4px;
+  }
+
+  .tier-detail {
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    box-shadow: var(--shadow);
+    min-height: 220px;
+  }
+  .tier-detail .d-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--navy-500);
+  }
+  .tier-detail h4 {
+    font-family: var(--serif);
+    font-size: 20px;
+    margin: 6px 0 10px;
+    color: var(--heading);
+  }
+  .tier-detail p { margin: 0 0 12px; color: var(--ink-soft); font-size: 14.5px; }
+  .metric-row { display: flex; gap: 18px; margin-top: 14px; }
+  .metric { flex: 1; }
+  .metric .m-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+  }
+  .bar-track { height: 8px; background: var(--gray-200); border-radius: 4px; margin-top: 6px; overflow: hidden; }
+  .bar-fill { height: 100%; background: var(--navy-700); border-radius: 4px; transition: width 0.3s ease; }
+  .metric .m-value { font-family: var(--mono); font-size: 13px; margin-top: 4px; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+  .drift-note {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: var(--warn-bg);
+    border: 1px solid color-mix(in srgb, var(--warn) 30%, transparent);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    color: var(--ink);
+  }
+  .drift-note b { color: var(--warn); }
+
+  /* ---------- Section 3: Investment Gate ---------- */
+  .gate-tool {
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .gate-q { display: flex; flex-direction: column; gap: 10px; }
+  .gate-q .q-text { font-size: 15px; font-weight: 600; color: var(--heading); }
+  .choices { display: flex; gap: 10px; flex-wrap: wrap; }
+  .choice {
+    font-family: var(--sans);
+    font-size: 13.5px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--gray-200);
+    background: var(--gray-050);
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.12s ease;
+  }
+  .choice:hover { border-color: var(--navy-500); }
+  .choice.selected { background: var(--navy-700); color: #fff; border-color: var(--navy-700); }
+  .choice:focus-visible { outline: 2px solid var(--navy-500); outline-offset: 2px; }
+
+  .gate-q.hidden { display: none; }
+
+  .verdict {
+    border-radius: 8px;
+    padding: 16px 18px;
+    font-size: 14.5px;
+    display: none;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .verdict.show { display: flex; }
+  .verdict .v-pill {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .verdict.approve { background: var(--good-bg); color: var(--good); }
+  .verdict.approve .v-pill { background: var(--good); color: #fff; }
+  .verdict.exception { background: var(--warn-bg); color: var(--warn); }
+  .verdict.exception .v-pill { background: var(--warn); color: #fff; }
+  .verdict.reject { background: var(--bad-bg); color: var(--bad); }
+  .verdict.reject .v-pill { background: var(--bad); color: #fff; }
+  .verdict p { margin: 0; color: inherit; }
+
+  .reset-link {
+    align-self: flex-start;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--navy-500);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ---------- Section 4: Discipline ---------- */
+  .discipline-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  @media (max-width: 700px) { .discipline-grid { grid-template-columns: 1fr; } }
+  .disc-card {
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    border: 1px solid var(--gray-200);
+  }
+  .disc-card.quant { background: var(--gray-100); }
+  .disc-card.qual { background: var(--paper); }
+  .disc-card h4 {
+    font-family: var(--serif);
+    font-size: 17px;
+    margin: 0 0 8px;
+    color: var(--heading);
+  }
+  .disc-card ul { margin: 0; padding-left: 18px; font-size: 14px; color: var(--ink-soft); }
+  .disc-card li { margin-bottom: 6px; }
+  .discipline-grid.three { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 760px) { .discipline-grid.three { grid-template-columns: 1fr; } }
+  .offering-desc { margin: 0; color: var(--ink-soft); font-size: 14px; }
+
+  /* ---------- Tabs ---------- */
+  .tabnav {
+    display: flex;
+    gap: 4px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .tabbtn {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 12px 4px;
+    margin-right: 22px;
+    cursor: pointer;
+  }
+  .tabbtn:hover { color: var(--navy-700); }
+  .tabbtn.active { color: var(--heading); border-bottom-color: var(--navy-700); }
+  .tabbtn:focus-visible { outline: 2px solid var(--navy-500); outline-offset: 2px; }
+  .tabpanel { display: flex; flex-direction: column; gap: 64px; }
+  .tabpanel[hidden] { display: none; }
+
+  /* ---------- Lifecycle x Hierarchy Matrix ---------- */
+  .matrix-scroll { overflow-x: auto; }
+  table.hmatrix {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: separate;
+    border-spacing: 6px;
+  }
+  table.hmatrix th, table.hmatrix td { text-align: left; }
+  table.hmatrix thead th {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--navy-500);
+    font-weight: 600;
+    padding: 0 8px 8px;
+  }
+  table.hmatrix thead th.corner { background: none; }
+  table.hmatrix tbody th {
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--heading);
+    font-weight: 600;
+    padding: 0 12px 0 2px;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  table.hmatrix td {
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    height: 56px;
+    width: 22%;
+    cursor: pointer;
+    transition: border-color 0.12s ease, transform 0.12s ease;
+  }
+  table.hmatrix td:hover { border-color: var(--navy-300); transform: translateY(-1px); }
+  table.hmatrix td.active { border-color: var(--navy-700); border-width: 2px; box-shadow: var(--shadow); }
+  table.hmatrix td.diag { background: var(--gray-100); }
+  table.hmatrix td.diag::after {
+    content: '▨';
+    display: block;
+    text-align: right;
+    padding: 4px 8px 0 0;
+    font-size: 11px;
+    color: var(--navy-300);
+  }
+  table.hmatrix td:focus-visible { outline: 2px solid var(--navy-500); outline-offset: 2px; }
+
+  .cell-detail {
+    background: var(--paper);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 22px 24px;
+    margin-top: 20px;
+  }
+  .cell-detail .d-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--navy-500);
+  }
+  .cell-detail h4 {
+    font-family: var(--serif);
+    font-size: 20px;
+    margin: 6px 0 14px;
+    color: var(--heading);
+  }
+  .cd-grid { display: flex; flex-direction: column; gap: 10px; }
+  .cd-row { display: grid; grid-template-columns: 130px 1fr; gap: 12px; font-size: 14px; }
+  @media (max-width: 600px) { .cd-row { grid-template-columns: 1fr; gap: 2px; } }
+  .cd-row b {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--navy-500);
+  }
+  .cd-row span { color: var(--ink-soft); }
+
+  footer {
+    border-top: 1px solid var(--gray-200);
+    padding-top: 22px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--gray-400);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">Strategy · Visual Model</div>
+    <h1>Product Revenue Tier &amp; Investment Case</h1>
+    <p class="dek">A working model for deciding whether a product or solution deserves investment — classify its revenue contribution, place it on the value hierarchy if it's direct revenue, then run it through the investment gate before committing.</p>
+    <p class="source-line">Companion to <code>product-revenue-tier-investment-case.md</code> — Strategy skills, workspace agent library</p>
+  </header>
+
+  <nav class="tabnav" role="tablist" aria-label="Visual model sections">
+    <button class="tabbtn active" role="tab" aria-selected="true" aria-controls="tab-revenue" id="tabbtn-revenue" data-tab="revenue">Revenue Tier &amp; Investment Case</button>
+    <button class="tabbtn" role="tab" aria-selected="false" aria-controls="tab-matrix" id="tabbtn-matrix" data-tab="matrix">Lifecycle × Hierarchy Matrix</button>
+  </nav>
+
+  <div id="tab-revenue" class="tabpanel active" role="tabpanel" aria-labelledby="tabbtn-revenue">
+
+  <!-- SECTION 1 -->
+  <section aria-labelledby="s1-h">
+    <div class="section-head">
+      <span class="section-num">01 / Classification</span>
+      <h2 id="s1-h">Direct or indirect revenue contributor?</h2>
+      <p class="section-intro">Every product/solution starts here. This single fork decides which model applies next — the value hierarchy for direct revenue, or a quantified enablement case for indirect revenue.</p>
+    </div>
+
+    <div class="classify-row">
+      <div class="class-card direct" tabindex="0" role="button" aria-expanded="false" id="direct-card">
+        <span class="tag">Direct revenue</span>
+        <h3>The client pays for this, specifically</h3>
+        <p>A line item, a subscription, a metered fee — money changes hands because of this offering, not because of something it happens to sit beside.</p>
+        <p class="hint" style="margin-top:12px;">→ Continue to the Value Hierarchy below</p>
+      </div>
+
+      <div class="class-card indirect" tabindex="0" role="button" aria-expanded="false" id="indirect-card">
+        <span class="tag">Indirect revenue</span>
+        <h3>It enables revenue elsewhere</h3>
+        <p>No standalone client charge — value shows up as speed, cost, or margin somewhere else in the business. Click to see the four named mechanisms.</p>
+        <div class="mech-grid" id="mech-grid">
+          <div class="mech"><b>Faster enablement to revenue</b><span>Reduces time-to-first-dollar for another revenue product or deal.</span></div>
+          <div class="mech"><b>Faster client onboarding</b><span>Cuts time-to-value; lowers early-lifecycle churn risk.</span></div>
+          <div class="mech"><b>Reduced operational cost</b><span>Lowers cost-to-serve, freeing margin elsewhere.</span></div>
+          <div class="mech"><b>Increased profitability via process optimization</b><span>Improves margin on existing revenue, no new client charge.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section aria-labelledby="s2-h">
+    <div class="section-head">
+      <span class="section-num">02 / Value Hierarchy</span>
+      <h2 id="s2-h">For direct revenue: where does it sit?</h2>
+      <p class="section-intro">Modeled on Maslow's hierarchy, adapted to what a paying client expects vs. values. Foundational is table stakes — expected, undifferentiated, cheap. Climbing the pyramid means solving a less commoditized problem for fewer competitors, at a higher price. <span class="hint">Click a tier</span></p>
+    </div>
+
+    <div class="pyramid-layout">
+      <div>
+        <div class="pyramid" id="pyramid">
+          <div class="tier tier-1" data-tier="1" tabindex="0" role="button">
+            <div class="t-name">Foundational</div>
+            <div class="t-meta">table stakes</div>
+          </div>
+          <div class="tier tier-2" data-tier="2" tabindex="0" role="button">
+            <div class="t-name">Efficiency</div>
+            <div class="t-meta">clear advantage</div>
+          </div>
+          <div class="tier tier-3" data-tier="3" tabindex="0" role="button">
+            <div class="t-name">Strategic</div>
+            <div class="t-meta">hard to match</div>
+          </div>
+          <div class="tier tier-4" data-tier="4" tabindex="0" role="button">
+            <div class="t-name">Transformational</div>
+            <div class="t-meta">category-defining</div>
+          </div>
+        </div>
+        <div class="axis-row"><span>Wider = higher volume</span><span>Higher = higher margin</span></div>
+      </div>
+
+      <div class="tier-detail" id="tier-detail">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section aria-labelledby="s3-h">
+    <div class="section-head">
+      <span class="section-num">03 / Investment Gate</span>
+      <h2 id="s3-h">Does the case clear the bar?</h2>
+      <p class="section-intro">Answer the two questions below in order. There are exactly three valid outcomes — a quantitative direct case, a quantitative indirect case, or a labeled competitive-parity exception. There is no fourth "trust me" outcome.</p>
+    </div>
+
+    <div class="gate-tool">
+      <div class="gate-q" id="q1">
+        <div class="q-text">Q1 — Is there a quantitatively supported revenue case (direct tier placement or indirect mechanism), sourced and verifiable?</div>
+        <div class="choices">
+          <button class="choice" data-q="1" data-a="direct">Yes — direct-revenue case</button>
+          <button class="choice" data-q="1" data-a="indirect">Yes — indirect-revenue case</button>
+          <button class="choice" data-q="1" data-a="no">No quantitative case</button>
+        </div>
+      </div>
+
+      <div class="gate-q hidden" id="q2">
+        <div class="q-text">Q2 — Without a quantitative case: does this close a competitive messaging/parity gap (a defensive "we lose deals without it" case)?</div>
+        <div class="choices">
+          <button class="choice" data-q="2" data-a="yes">Yes — parity gap</button>
+          <button class="choice" data-q="2" data-a="no">No</button>
+        </div>
+      </div>
+
+      <div class="verdict" id="verdict"></div>
+      <button class="reset-link" id="reset-gate">reset ↺</button>
+    </div>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section aria-labelledby="s4-h">
+    <div class="section-head">
+      <span class="section-num">04 / Evidence Discipline</span>
+      <h2 id="s4-h">Quantitative decides. Qualitative confirms.</h2>
+    </div>
+    <div class="discipline-grid">
+      <div class="disc-card quant">
+        <h4>Quantitative — the case itself</h4>
+        <ul>
+          <li>Revenue, margin, volume, cost, and cycle-time figures</li>
+          <li>Sourced — internal system-of-record or named competitor/market data</li>
+          <li>Tagged by access tier: public, gated, paid, or internal</li>
+          <li>Unverified figures labeled "estimate needing validation" — never stated as fact</li>
+        </ul>
+      </div>
+      <div class="disc-card qual">
+        <h4>Qualitative — confirmation only</h4>
+        <ul>
+          <li>Client interviews, NPS/CSAT commentary, sales anecdotes</li>
+          <li>Used to confirm value already shown quantitatively</li>
+          <li>Appropriate for client experience and differentiation topics</li>
+          <li>Never a substitute for a revenue or cost estimate — runs systematically optimistic</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  </div>
+  <!-- END tab-revenue -->
+
+  <div id="tab-matrix" class="tabpanel" role="tabpanel" aria-labelledby="tabbtn-matrix" hidden>
+
+  <section aria-labelledby="m0-h">
+    <div class="section-head">
+      <span class="section-num">05 / Offering Types</span>
+      <h2 id="m0-h">Product, Service, or Solution?</h2>
+      <p class="section-intro">Identify this before placing anything on the matrix below — the same underlying capability can exist as more than one type, and each instance is placed separately.</p>
+    </div>
+    <div class="discipline-grid three">
+      <div class="disc-card qual">
+        <h4>Product</h4>
+        <p class="offering-desc">Standardized and repeatable. The same thing is sold and delivered to every client with minimal customization. Scales without proportional headcount.</p>
+      </div>
+      <div class="disc-card qual">
+        <h4>Service</h4>
+        <p class="offering-desc">Expertise or labor, delivered ongoing or per-engagement. Varies by client, people-intensive, billed by time, retainer, or outcome.</p>
+      </div>
+      <div class="disc-card qual">
+        <h4>Solution</h4>
+        <p class="offering-desc">A bundle of product(s) and/or service(s) solving one named client problem end-to-end. The client buys the outcome, not the parts.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="m1-h">
+    <div class="section-head">
+      <span class="section-num">06 / The Matrix</span>
+      <h2 id="m1-h">Lifecycle stage × Value hierarchy tier</h2>
+      <p class="section-intro">Every cell answers five questions: <b>When</b> it applies, <b>Where</b> it shows up, <b>How</b> it's delivered, <b>What</b> it does/enables/is used for, and <b>Expected profitability</b>. The highlighted cells trace the default diagonal — where an offering drifts if nobody reinvests in it. <span class="hint">Click a cell</span></p>
+    </div>
+
+    <div class="matrix-scroll">
+      <table class="hmatrix" id="hmatrix">
+        <thead>
+          <tr>
+            <th class="corner"></th>
+            <th data-tier="foundational">Foundational</th>
+            <th data-tier="efficiency">Efficiency</th>
+            <th data-tier="strategic">Strategic</th>
+            <th data-tier="transformational">Transformational</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-stage="introduction">
+            <th>Introduction</th>
+            <td data-cell="introduction-foundational"></td>
+            <td data-cell="introduction-efficiency"></td>
+            <td data-cell="introduction-strategic"></td>
+            <td data-cell="introduction-transformational" class="diag"></td>
+          </tr>
+          <tr data-stage="growth">
+            <th>Growth</th>
+            <td data-cell="growth-foundational"></td>
+            <td data-cell="growth-efficiency"></td>
+            <td data-cell="growth-strategic" class="diag"></td>
+            <td data-cell="growth-transformational"></td>
+          </tr>
+          <tr data-stage="maturity">
+            <th>Maturity</th>
+            <td data-cell="maturity-foundational"></td>
+            <td data-cell="maturity-efficiency" class="diag"></td>
+            <td data-cell="maturity-strategic"></td>
+            <td data-cell="maturity-transformational"></td>
+          </tr>
+          <tr data-stage="decline">
+            <th>Decline</th>
+            <td data-cell="decline-foundational" class="diag"></td>
+            <td data-cell="decline-efficiency"></td>
+            <td data-cell="decline-strategic"></td>
+            <td data-cell="decline-transformational"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint" style="margin-top:2px;">▨ highlighted = default diagonal (drift path when nothing is reinvested)</p>
+
+    <div class="cell-detail" id="cell-detail">
+      <span class="d-tag" id="cd-tag">Introduction · Transformational</span>
+      <h4 id="cd-title">Category-creation moment</h4>
+      <div class="cd-grid">
+        <div class="cd-row"><b>When</b><span id="cd-when"></span></div>
+        <div class="cd-row"><b>Where</b><span id="cd-where"></span></div>
+        <div class="cd-row"><b>How</b><span id="cd-how"></span></div>
+        <div class="cd-row"><b>What</b><span id="cd-what"></span></div>
+        <div class="cd-row"><b>Profitability</b><span id="cd-profit"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="m2-h">
+    <div class="section-head">
+      <span class="section-num">07 / The Diagonal</span>
+      <h2 id="m2-h">How drift actually plays out</h2>
+      <p class="section-intro">Introduction/Transformational → Growth/Strategic → Maturity/Efficiency → Decline/Foundational is the default path for a successful offering nobody reinvests in. Differentiation erodes over time — an offering that stands still on the tier axis moves down it anyway as competitors close the gap, while it simultaneously moves right along the lifecycle axis. Reinvestment pulls it back up a tier, which effectively starts a new diagonal rather than undoing the lifecycle clock.</p>
+    </div>
+  </section>
+
+  </div>
+  <!-- END tab-matrix -->
+
+  <footer>
+    <span>Product Revenue Tier &amp; Investment Case · Visual Model</span>
+    <span>For human review — Strategy skill root</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  // --- Section 1: indirect mechanism expand ---
+  var indirectCard = document.getElementById('indirect-card');
+  var mechGrid = document.getElementById('mech-grid');
+  var directCard = document.getElementById('direct-card');
+
+  function toggleIndirect() {
+    var open = mechGrid.classList.toggle('open');
+    indirectCard.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  indirectCard.addEventListener('click', toggleIndirect);
+  indirectCard.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleIndirect(); }
+  });
+  directCard.addEventListener('click', function () {
+    document.getElementById('pyramid').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+  directCard.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); directCard.click(); }
+  });
+
+  // --- Section 2: pyramid tiers ---
+  var tierData = {
+    1: {
+      name: 'Foundational', tag: 'Tier 1 · Table stakes',
+      desc: 'The client simply expects this to exist. Every credible competitor already has it. Willingness to pay is minimal — its absence disqualifies you from the deal, but its presence isn’t a selling point.',
+      volume: 92, margin: 22,
+      drift: 'Nothing drifts INTO this tier from below — everything drifts down TOWARD it as competitors close gaps above.'
+    },
+    2: {
+      name: 'Efficiency', tag: 'Tier 2 · Clear advantage',
+      desc: 'Solves a problem most competitors handle poorly or not at all. Clients notice and will pay a premium, but the moat is narrowing as fast-followers catch up.',
+      volume: 61, margin: 48,
+      drift: 'Highest drift risk: efficiency gains are the easiest for competitors to copy once demonstrated.'
+    },
+    3: {
+      name: 'Strategic', tag: 'Tier 3 · Hard to match',
+      desc: 'Requires capability, data, or integration depth competitors would need years to replicate. Pricing power is real and clients treat this as a genuine differentiator.',
+      volume: 34, margin: 68,
+      drift: 'Monitor for platform shifts or new entrants that could shortcut the years of build-up this tier assumes.'
+    },
+    4: {
+      name: 'Transformational', tag: 'Tier 4 · Category-defining',
+      desc: 'Changes how the client operates or competes. Rare, defensible, and priced accordingly — but the smallest addressable slice of the portfolio.',
+      volume: 14, margin: 86,
+      drift: 'Lowest immediate drift risk, but the tier itself can be redefined by a market shift faster than any single competitor could match it.'
+    }
+  };
+
+  var detailBox = document.getElementById('tier-detail');
+  var tiers = document.querySelectorAll('.tier');
+
+  function renderTier(n) {
+    var d = tierData[n];
+    detailBox.innerHTML =
+      '<span class="d-tag">' + d.tag + '</span>' +
+      '<h4>' + d.name + '</h4>' +
+      '<p>' + d.desc + '</p>' +
+      '<div class="metric-row">' +
+        '<div class="metric"><span class="m-label">Volume / activity</span>' +
+          '<div class="bar-track"><div class="bar-fill" style="width:' + d.volume + '%"></div></div>' +
+          '<div class="m-value">' + d.volume + '%</div></div>' +
+        '<div class="metric"><span class="m-label">Margin</span>' +
+          '<div class="bar-track"><div class="bar-fill" style="width:' + d.margin + '%"></div></div>' +
+          '<div class="m-value">' + d.margin + '%</div></div>' +
+      '</div>' +
+      '<div class="drift-note" style="margin-top:16px;"><span>⤵</span><span><b>Lifecycle drift —</b> ' + d.drift + '</span></div>';
+  }
+
+  tiers.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tiers.forEach(function (o) { o.classList.remove('active'); });
+      t.classList.add('active');
+      renderTier(t.getAttribute('data-tier'));
+    });
+    t.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); t.click(); }
+    });
+  });
+  // default view: Foundational tier active on load
+  document.querySelector('.tier-1').classList.add('active');
+  renderTier(1);
+
+  // --- Section 3: investment gate ---
+  var q1 = document.getElementById('q1');
+  var q2 = document.getElementById('q2');
+  var verdict = document.getElementById('verdict');
+  var resetBtn = document.getElementById('reset-gate');
+
+  function clearSelected(container) {
+    container.querySelectorAll('.choice').forEach(function (b) { b.classList.remove('selected'); });
+  }
+
+  function showVerdict(type, pill, text) {
+    verdict.className = 'verdict show ' + type;
+    verdict.innerHTML = '<span class="v-pill">' + pill + '</span><p>' + text + '</p>';
+  }
+
+  q1.querySelectorAll('.choice').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      clearSelected(q1);
+      btn.classList.add('selected');
+      var ans = btn.getAttribute('data-a');
+      if (ans === 'direct') {
+        q2.classList.add('hidden');
+        showVerdict('approve', 'Approve', 'Quantitatively justified DIRECT-revenue case. Cite the tier placement, its volume/margin evidence, and proceed.');
+      } else if (ans === 'indirect') {
+        q2.classList.add('hidden');
+        showVerdict('approve', 'Approve', 'Quantitatively justified INDIRECT-revenue case. Cite the specific mechanism and its measured figure, and proceed.');
+      } else {
+        q2.classList.remove('hidden');
+        verdict.className = 'verdict';
+        verdict.innerHTML = '';
+      }
+    });
+  });
+
+  q2.querySelectorAll('.choice').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      clearSelected(q2);
+      btn.classList.add('selected');
+      var ans = btn.getAttribute('data-a');
+      if (ans === 'yes') {
+        showVerdict('exception', 'Approve · Exception', 'COMPETITIVE-PARITY exception. Label it as exactly that in the business case — a defensive parity investment, not a growth or differentiation case.');
+      } else {
+        showVerdict('reject', 'Do not invest', 'No quantitative case and no parity justification. This does not clear the gate as it stands — return once a measurable case exists.');
+      }
+    });
+  });
+
+  resetBtn.addEventListener('click', function () {
+    clearSelected(q1);
+    clearSelected(q2);
+    q2.classList.add('hidden');
+    verdict.className = 'verdict';
+    verdict.innerHTML = '';
+  });
+
+  // --- Tabs ---
+  var tabBtns = document.querySelectorAll('.tabbtn');
+  var tabPanels = {
+    revenue: document.getElementById('tab-revenue'),
+    matrix: document.getElementById('tab-matrix')
+  };
+  tabBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var target = btn.getAttribute('data-tab');
+      tabBtns.forEach(function (b) {
+        var isActive = b === btn;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      Object.keys(tabPanels).forEach(function (key) {
+        var panel = tabPanels[key];
+        if (key === target) { panel.classList.add('active'); panel.removeAttribute('hidden'); }
+        else { panel.classList.remove('active'); panel.setAttribute('hidden', ''); }
+      });
+    });
+  });
+
+  // --- Lifecycle x Hierarchy Matrix ---
+  var stageNames = { introduction: 'Introduction', growth: 'Growth', maturity: 'Maturity', decline: 'Decline' };
+  var tierNames = { foundational: 'Foundational', efficiency: 'Efficiency', strategic: 'Strategic', transformational: 'Transformational' };
+
+  var matrixData = {
+    'introduction-foundational': { title: 'A fast-follow copy, priced to buy in', when: 'Rare — nothing typically enters at table-stakes with zero track record.', where: 'N/A in practice — occurs only as a fast-follow copy of an established competitor feature.', how: 'Priced low specifically to buy initial adoption.', what: 'Matches an existing table-stakes capability, offered for the first time by this vendor.', profit: 'Low volume, thin or negative margin while proving the copy works.' },
+    'introduction-efficiency': { title: 'An emerging, clearly-better way', when: 'The client already feels a specific operational pain and self-selects in.', where: 'The early-adopter segment within the target market.', how: 'Direct sales or guided onboarding — clients need convincing the gain is real.', what: 'A clearly better way of doing something clients already do today.', profit: 'Low volume; margin still forming as pricing is tested.' },
+    'introduction-strategic': { title: 'The common entry point for real capability', when: 'The typical entry point for genuinely new capability.', where: 'A narrow client segment willing to invest in unproven capability.', how: 'High-touch, consultative — client education required.', what: 'Solves a problem competitors can’t yet address.', profit: 'Low volume; margin can be premium-priced from day one if positioning holds.' },
+    'introduction-transformational': { title: 'Category-creation moment', when: 'The category-creation moment.', where: 'No established market yet — you are defining it.', how: 'Evangelism-led: market education, thought leadership, design partners.', what: 'Changes how clients operate; no real competitive set exists yet.', profit: 'Lowest volume in the matrix; margin has the most theoretical room but is unproven.' },
+
+    'growth-foundational': { title: 'Rarely a real growth path', when: 'Uncommon — undifferentiated offerings rarely grow share post-launch.', where: 'Edge case, if it happens at all.', how: 'No repeatable motion typically emerges.', what: 'Stays flat or fails to gain traction.', profit: 'Flat-to-failing; not a real growth path.' },
+    'growth-efficiency': { title: 'Adoption steepens on proof points', when: 'The adoption curve steepens past early adopters.', where: 'The broader target segment, as proof points spread.', how: 'A repeatable sales motion: case studies, referrals.', what: 'The same efficiency gain, now with demonstrated proof.', profit: 'Volume rising quickly; margin near its best point.' },
+    'growth-strategic': { title: 'The strongest cell in the matrix', when: 'Proof points accumulating while competitors still lag.', where: 'Expanding across the target segment, with some spillover to adjacent segments.', how: 'Solution selling backed by references.', what: 'Real, demonstrated differentiation clients can point to.', profit: 'Volume and margin climbing together — the strongest cell in the matrix.' },
+    'growth-transformational': { title: 'Becoming the category reference point', when: 'Momentum building past early adopters while the category is still owned.', where: 'Broader segment adoption, still ahead of any real competitive response.', how: 'Scaling the evangelism motion into a repeatable one without diluting the story.', what: 'Becoming the reference point for the category it created.', profit: 'Margin at its peak; volume still small relative to mature offerings but growing fast.' },
+
+    'maturity-foundational': { title: 'The classic Foundational position', when: 'Broadly adopted, fully matched by competitors.', where: 'The entire addressable market — this is the market.', how: 'Self-serve or commodity procurement, price-led.', what: 'The expected baseline capability everyone offers.', profit: 'Highest volume in the matrix, lowest margin.' },
+    'maturity-efficiency': { title: 'The advantage is narrowing', when: 'The advantage is narrowing as competitors copy the gain.', where: 'The full target segment, defending against fast-followers.', how: 'A retention-focused motion: renewals, expansion, defending share.', what: 'Still valuable, but no longer distinctive.', profit: 'Volume near peak; margin compressing.' },
+    'maturity-strategic': { title: 'Real, but no longer unique', when: 'The advantage is real but no longer unique — the gap has partially closed.', where: 'The full target segment, with competitors present but behind.', how: 'Value-defense selling: proving continued differentiation.', what: 'A real but eroding advantage.', profit: 'Solid volume; margin under pressure but still above commodity.' },
+    'maturity-transformational': { title: 'Mid-drift toward Strategic', when: 'Rare to stay here — usually mid-drift toward Strategic.', where: 'Broad adoption across the category it created.', how: 'Managing the transition from category-definer to incumbent.', what: 'Still meaningfully differentiated, but the moat is visibly narrowing.', profit: 'Volume climbing toward its ceiling for this tier; margin softening from its Growth-stage peak.' },
+
+    'decline-foundational': { title: 'Being sunset or absorbed', when: 'Being sunset or absorbed into a successor.', where: 'A shrinking base of clients who haven’t migrated yet.', how: 'Maintenance mode: minimal investment, managed exit.', what: 'Legacy capability being phased out.', profit: 'Lowest margin in the matrix, volume falling.' },
+    'decline-efficiency': { title: 'Fully commoditized or replaced', when: 'Fully commoditized, or replaced by a better mechanism.', where: 'The remaining long-tail clients not yet migrated.', how: 'Harvest mode — no further investment.', what: 'An efficiency gain that no longer differentiates.', profit: 'Volume flat-to-falling; margin compressed toward Foundational levels.' },
+    'decline-strategic': { title: 'A decision point: reinvest or retire', when: 'Aging out as competitors and successors close the gap.', where: 'Clients not yet moved to the successor offering.', how: 'A decision point: reinvest to re-differentiate, or retire.', what: 'A once-differentiated capability past its peak.', profit: 'Volume and margin both falling from Maturity levels.' },
+    'decline-transformational': { title: 'A former category-definer, retiring', when: 'Being superseded by the next transformational wave — possibly your own successor.', where: 'Clients migrating to what’s next.', how: 'A managed sunset alongside the successor’s launch.', what: 'A former category-definer being retired.', profit: 'Margin falling from its historic peak; volume was never the point of this cell, but even that shrinks.' }
+  };
+
+  var matrixCells = document.querySelectorAll('.hmatrix td');
+  var cdTag = document.getElementById('cd-tag');
+  var cdTitle = document.getElementById('cd-title');
+  var cdWhen = document.getElementById('cd-when');
+  var cdWhere = document.getElementById('cd-where');
+  var cdHow = document.getElementById('cd-how');
+  var cdWhat = document.getElementById('cd-what');
+  var cdProfit = document.getElementById('cd-profit');
+
+  function renderCell(key) {
+    var stage = key.split('-')[0];
+    var tier = key.split('-')[1];
+    var d = matrixData[key];
+    cdTag.textContent = stageNames[stage] + ' · ' + tierNames[tier];
+    cdTitle.textContent = d.title;
+    cdWhen.textContent = d.when;
+    cdWhere.textContent = d.where;
+    cdHow.textContent = d.how;
+    cdWhat.textContent = d.what;
+    cdProfit.textContent = d.profit;
+  }
+
+  matrixCells.forEach(function (cell) {
+    cell.setAttribute('tabindex', '0');
+    cell.setAttribute('role', 'button');
+    cell.addEventListener('click', function () {
+      matrixCells.forEach(function (c) { c.classList.remove('active'); });
+      cell.classList.add('active');
+      renderCell(cell.getAttribute('data-cell'));
+    });
+    cell.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); cell.click(); }
+    });
+  });
+
+  // default cell: Introduction x Transformational
+  var defaultCell = document.querySelector('[data-cell="introduction-transformational"]');
+  defaultCell.classList.add('active');
+  renderCell('introduction-transformational');
+})();
+</script>
+</body>
+</html>

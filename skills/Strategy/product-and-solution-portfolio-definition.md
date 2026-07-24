@@ -51,6 +51,10 @@ Produce the result in this order:
    - consolidate
    - retire
    - split responsibilities more clearly
+   - for any product whose continued investment is in question, apply
+     `product-revenue-tier-investment-case.md` before deciding — its
+     direct/indirect classification and investment gate determine whether
+     "keep" is actually justified
 8. Summarize how this portfolio definition should be used to validate annual strategy and prevent duplicate investment.
 
 Rules:
